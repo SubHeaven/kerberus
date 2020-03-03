@@ -75,6 +75,7 @@ def runOnNewWindow(service):
     return service
 
 def start_guardian():
+    os.system("title=Kerberus - Monitoramento de Serviços")
     services_list = load_service_list()
     checkservices(starting=True, services_list=services_list)
     while True:
