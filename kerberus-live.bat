@@ -1,0 +1,1 @@
+SET DEBUG=kerberus:* & npm start
