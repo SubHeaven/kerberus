@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('The request failed!');
             }
         };
-        xhr.open('GET', 'http://127.0.0.1:6660/detalhes');
+        xhr.open('GET', 'detalhes');
         xhr.send();
     }
 
