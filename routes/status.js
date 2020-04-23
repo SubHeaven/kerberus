@@ -4,7 +4,23 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.send({ status: true });
+    ok = false;
+    if (fs.existsSync("kerberus.pid")) {
+        spid = fs.readFileSync("kerberus.pid", 'utf8').toString();
+        if (spid != "") {
+            pid = parseInt(spid);
+            console.log("======>>>>>>")
+            console.log(process.kill(pid, 0))
+            ok = true;
+        }
+    }
+    if (ok) {
+        lista = JSON.parse(fs.readFileSync("kerberus.json"))
+        for (i=0;i<lista.length;i++) {
+            ok = ok && (lista[i]['status'] === 'running' || lista[i]['status'] === 'stopped');
+        }
+    }
+    res.send({ status: ok });
 });
 
 /* GET home page. */

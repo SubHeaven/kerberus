@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+import atexit
 import codecs
 import datetime
 import json
 import os
 import psutil
+import shutil
 import sys
 import time
 
@@ -11,6 +13,7 @@ from subprocess import Popen, CREATE_NEW_CONSOLE
 
 iacon_process_list = {}
 services_list = []
+current_pid = os.getpid()
 
 def load_service_list():
     services_list = []
@@ -77,6 +80,7 @@ def runOnNewWindow(service):
 def start_guardian():
     os.system("title=Kerberus - Monitoramento de Serviços")
     services_list = load_service_list()
+    print(json.dumps(services_list, indent=4))
     checkservices(starting=True, services_list=services_list)
     while True:
         services_list = checkservices(services_list=services_list)
@@ -115,6 +119,15 @@ def printHelp():
     print("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 
 if __name__ == "__main__":
+    if os.path.isfile("kerberus.pid"):
+        os.remove("kerberus.pid")
+    with codecs.open("kerberus.pid", "w+", "utf8") as file:
+        file.write(str(current_pid))
+    @atexit.register
+    def onExit():
+        if os.path.isfile("kerberus.pid"):
+            os.remove("kerberus.pid")
+
     args = []
     vars = {}
     vars['command'] = sys.argv[0]
