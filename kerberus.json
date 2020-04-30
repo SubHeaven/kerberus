@@ -1,16 +1,17 @@
 [
     {
-        "name": "MonitorarPastaGeral",
-        "path": "C:\\Projects\\dharma-servicos\\tools",
-        "command": "start_apagar.bat",
+        "name": "TesteKerberus",
+        "path": "C:\\Testes\\kerberus",
+        "command": "teste.bat",
         "title": "Monitorar Pasta Geral",
         "description": "Monitora a pasta geral em busca de inclusão de arquivos e os adiciona na lista de arquivos para serem processados.",
-        "pid": 4380,
+        "pid": 11344,
         "cpu": 0.0,
         "ram": 0.03,
         "restart": true,
         "status": "running",
-        "startat": "",
-        "stopat": ""
+        "startat": "07:30:00",
+        "stopat": "19:00:00",
+        "mongo": "5eaad2e2b2bec3b00c7ac2aa"
     }
 ]

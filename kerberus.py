@@ -9,6 +9,8 @@ import shutil
 import sys
 import time
 
+from bson import ObjectId
+from pymongo import MongoClient
 from subprocess import Popen, CREATE_NEW_CONSOLE
 
 iacon_process_list = {}
@@ -23,6 +25,14 @@ def load_service_list():
     return services_list
 
 def update_service_list(services_list):
+    mongo = MongoClient()['iacon']['kerberus_services']
+    for service in services_list:
+        if 'mongo' in service and mongo.count_documents({"_id": ObjectId(service['mongo'])}, limit = 1) > 0:
+            mongo.update_one({"_id": ObjectId(service['mongo'])}, {"$set": service})
+        else:
+            mongo.insert_one(service)
+            service['mongo'] = str(service['_id'])
+            del service['_id']
     with codecs.open("kerberus.json", "w+", "utf8") as file:
         file.write(json.dumps(services_list, indent=4, ensure_ascii=False))
 
