@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['kerberus.py'],
-             pathex=['C:\\iacon\\dharma-kerberus'],
+             pathex=['C:\\iacon\\kerberus'],
              binaries=[],
              datas=[],
              hiddenimports=[],

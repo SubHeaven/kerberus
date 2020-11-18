@@ -1,1 +1,1 @@
-start cmd.exe /K python3 kerberus.py noconsole
+echo python3 C:\iacon\kerberus\kerberus.py -daemon
