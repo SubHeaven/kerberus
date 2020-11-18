@@ -13,9 +13,6 @@ import sys
 import time
 import uuid
 
-from pystray import Icon as icon, Menu as menu, MenuItem as item
-from PIL import Image, ImageDraw
-
 from bson import ObjectId
 from pymongo import MongoClient
 from subprocess import Popen, CREATE_NEW_CONSOLE, CREATE_NO_WINDOW
