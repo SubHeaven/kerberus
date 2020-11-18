@@ -1,6 +1,6 @@
 {
     "MonitorarPastaGeral": {
-        "path": "C:\\Projects\\dharma-folder-watcher",
+        "path": "C:\\iacon\\dharma-folder-watcher",
         "command": "start_geral.bat",
         "title": "Monitorar Pasta Geral",
         "description": "Monitora a pasta geral em busca de inclusão de arquivos e os adiciona na lista de arquivos para serem processados.",
@@ -9,7 +9,7 @@
         "stopat": "19:00:00"
     },
     "ProcessarArquivosGeral": {
-        "path": "C:\\Projects\\dharma-task-runner",
+        "path": "C:\\iacon\\dharma-task-runner",
         "command": "start_geral.bat",
         "title": "Processar Arquivos Geral",
         "description": "Processa os arquivos adicionados na pasta geral e que seja um informativo auditado pelo Iacon.",
@@ -17,31 +17,4 @@
         "startat": "",
         "stopat": ""
     },
-    "MonitorarPastaExternos": {
-        "path": "C:\\Projects\\dharma-folder-watcher",
-        "command": "start_externos.bat",
-        "title": "Monitorar Pasta Externos",
-        "description": "Monitora a pasta externos em busca de inclusão de arquivos e os adiciona na lista de arquivos para serem processados.",
-        "restart": false,
-        "startat": "",
-        "stopat": ""
-    },
-    "ProcessarArquivosExternos": {
-        "path": "C:\\Repositorio\\dharma-task-runner",
-        "command": "start_externos.bat",
-        "title": "Processar Arquivos Externos",
-        "description": "Processa os arquivos adicionados na pasta externos e que seja um informativo auditado pelo Iacon.",
-        "restart": false,
-        "startat": "",
-        "stopat": ""
-    },
-    "KerberusWeb": {
-        "path": "C:\\Projects\\kerberus",
-        "command": "start.bat",
-        "title": "Kerberus Web",
-        "description": "Servidor Node do Kerberus.",
-        "restart": true,
-        "startat": "",
-        "stopat": ""
-    }
 }
